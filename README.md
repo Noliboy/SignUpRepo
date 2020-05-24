@@ -3,24 +3,24 @@ Guide on the installation of Selenium webdriver using Javascript and running the
 
 1. Create a folder
 
-2. Download and install Node.js 
+2. Copy the files in this repository to the created folder
 
-$ npm init
+3. Download and install Node.js 
 
-$ npm install
+    $ npm init
 
-3. Install selenium webdriver
+    $ npm install
 
-$ npm install selenium-webdriver
+4. Install selenium webdriver
 
-4. Install chrome driver
+    $ npm install selenium-webdriver
 
-$ npm install -g chromedriver
+5. Install chrome driver
 
-5. Copy the files in this repository 
+    $ npm install -g chromedriver
 
 6. Run the test scripts
 
-$ node test/emptyfield.js    and
+    $ node test/emptyfield.js    and
 
-$ node test/fieldvalidation.js
+    $ node test/fieldvalidation.js
