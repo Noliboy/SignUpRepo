@@ -21,6 +21,8 @@ Guide on the installation of Selenium webdriver using Javascript and running the
 
 6. Run the test scripts
 
-    $ node test/emptyfield.js    and
+    $ node test/emptyfield.js   
 
-    $ node test/fieldvalidation.js
+    $ node test/fieldvalidation.js  
+    
+    $ node test/link.js
