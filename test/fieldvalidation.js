@@ -9,7 +9,7 @@ path = require('chromedriver').path;
 var driver = chrome.Driver.createSession(new chrome.Options(), new 
 chrome.ServiceBuilder(path).build());
    
-driver.get('https://brand.tribegroup.co/signUp');
+driver.get('https://uat.tribegroup.co/signUp');
 driver.manage().window().maximize();
 driver.wait(until.elementLocated(By.css('button')), 50000);
 
@@ -25,7 +25,7 @@ firstNameField.sendKeys(Keys.SPACE);
 signUpButton.click();    
 driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[1]/div[1]/div[2]/span')).getText().then(function(errorFirstName){                                                     
     assert.strictEqual(errorFirstName,"Include first name", "Incorrect error")
-    console.log(errorFirstName)                 //print the error message for First Name field
+    console.log('Passed: ' + errorFirstName)    //print the error message for First Name field
 });
 
 lastNameField.sendKeys(Keys.SPACE);             //entering spaces in the Last name field
@@ -33,7 +33,7 @@ lastNameField.sendKeys(Keys.SPACE);
 signUpButton.click();    
 driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[1]/div[2]/div[2]/span')).getText().then(function(errorLastName){
     assert.strictEqual(errorLastName,"Include last name", "Incorrect error")
-    console.log(errorLastName)  //print the error message for Last Name field
+    console.log('Passed:' + errorLastName)      //print the error message for Last Name field
 });
 
 companyNameField.sendKeys(Keys.SPACE);          //entering spaces in the Company name field
@@ -41,14 +41,14 @@ companyNameField.sendKeys(Keys.SPACE);
 signUpButton.click();    
 driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[2]/div[2]/span')).getText().then(function(errorCompanyName){
     assert.strictEqual(errorCompanyName,"Include company name", "Incorrect error")
-    console.log(errorCompanyName)               //print the error message for Company Name field
+    console.log('Passed:' + errorCompanyName)   //print the error message for Company Name field
 });
 
 workEmailField.sendKeys("!@#$%&^'");            //populating invalid email value in the Email field
 signUpButton.click();
 driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[5]/div[2]/span')).getText().then(function(errorWorkEmail){
     assert.strictEqual(errorWorkEmail,"Your email looks incomplete", "Incorrect error")
-    console.log(errorWorkEmail)                 //print the error message for Work Email field
+    console.log('Passed:' + errorWorkEmail)     //print the error message for Work Email field
 });
 
 passwordField.sendKeys(Keys.SPACE);             //entering spaces in the Company name field
@@ -56,7 +56,7 @@ passwordField.sendKeys(Keys.SPACE);
 signUpButton.click(); 
 driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[6]/div[2]/span')).getText().then(function(errorPassword){
     assert.strictEqual(errorPassword,"Create a password", "Incorrect error")
-    console.log(errorPassword)  //print the error message for Password field
+    console.log('Passed:' + errorPassword)      //print the error message for Password field
 });
 
 driver.quit();
