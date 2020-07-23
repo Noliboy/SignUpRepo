@@ -19,11 +19,16 @@ var lastNameField = driver.findElement(By.name('last_name'));
 var companyNameField = driver.findElement(By.name('company_name'));
 var workEmailField = driver.findElement(By.name('email'));
 var passwordField = driver.findElement(By.name('password'));
+var firstNameTextError = driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[1]/div[1]/div[2]/span'))
+var lastNameETextError = driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[1]/div[2]/div[2]/span'))
+var companyNameTextError = driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[2]/div[2]/span'))
+var workEmailTextError = driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[5]/div[2]/span'))
+var passwordTextError =driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[6]/div[2]/span'))
 
 firstNameField.sendKeys(Keys.SPACE);            //entering spaces in the First name field
 firstNameField.sendKeys(Keys.SPACE);
 signUpButton.click();    
-driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[1]/div[1]/div[2]/span')).getText().then(function(errorFirstName){                                                     
+firstNameTextError.getText().then(function(errorFirstName){                                                     
     assert.strictEqual(errorFirstName,"Include first name", "Incorrect error")
     console.log('Passed: ' + errorFirstName)    //print the error message for First Name field
 });
@@ -31,7 +36,7 @@ driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[1]/div
 lastNameField.sendKeys(Keys.SPACE);             //entering spaces in the Last name field
 lastNameField.sendKeys(Keys.SPACE);
 signUpButton.click();    
-driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[1]/div[2]/div[2]/span')).getText().then(function(errorLastName){
+lastNameETextError.getText().then(function(errorLastName){
     assert.strictEqual(errorLastName,"Include last name", "Incorrect error")
     console.log('Passed:' + errorLastName)      //print the error message for Last Name field
 });
@@ -39,14 +44,14 @@ driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[1]/div
 companyNameField.sendKeys(Keys.SPACE);          //entering spaces in the Company name field
 companyNameField.sendKeys(Keys.SPACE);
 signUpButton.click();    
-driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[2]/div[2]/span')).getText().then(function(errorCompanyName){
+companyNameTextError.getText().then(function(errorCompanyName){
     assert.strictEqual(errorCompanyName,"Include company name", "Incorrect error")
     console.log('Passed:' + errorCompanyName)   //print the error message for Company Name field
 });
 
 workEmailField.sendKeys("!@#$%&^'");            //populating invalid email value in the Email field
 signUpButton.click();
-driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[5]/div[2]/span')).getText().then(function(errorWorkEmail){
+workEmailTextError.getText().then(function(errorWorkEmail){
     assert.strictEqual(errorWorkEmail,"Your email looks incomplete", "Incorrect error")
     console.log('Passed:' + errorWorkEmail)     //print the error message for Work Email field
 });
@@ -54,7 +59,7 @@ driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[5]/div
 passwordField.sendKeys(Keys.SPACE);             //entering spaces in the Company name field
 passwordField.sendKeys(Keys.SPACE);
 signUpButton.click(); 
-driver.findElement(By.xpath('//*[@id="root"]/main/div[3]/div/div/form/div[6]/div[2]/span')).getText().then(function(errorPassword){
+passwordTextError.getText().then(function(errorPassword){
     assert.strictEqual(errorPassword,"Create a password", "Incorrect error")
     console.log('Passed:' + errorPassword)      //print the error message for Password field
 });
